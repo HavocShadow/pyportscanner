@@ -2,7 +2,13 @@ from scapy.all import *
 from scapy.layers.inet import ICMP, IP, TCP, UDP
 ip = input("[+] Masukkan IP Anda : ")
 target_ip = input("[+] Masukkan IP target : ")
-target_port = int(input("[+] Masukkan port : "))
+while True:
+    try:
+        target_port = int(input("[+] Masukkan port : "))
+        break
+    except ValueError:
+        print("Port harus berupa angka. Coba lagi.")
+
 protocol_choice = input("[+] Pilih protokol (TCP/UDP/ICMP): ").upper()
 
 if protocol_choice not in ['TCP', 'UDP', 'ICMP']:
